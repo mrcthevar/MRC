@@ -77,13 +77,8 @@ const Works: React.FC = () => {
   return (
     <div className="py-32 px-4 md:px-8 bg-black relative z-10">
       <div className="max-w-[90rem] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8 border-b border-white/10 pb-8">
-          <div>
-             <h2 className="text-5xl md:text-7xl font-heading font-bold text-white mb-6 tracking-tight">SELECTED WORKS</h2>
-             <p className="text-secondary/70 max-w-lg text-lg leading-relaxed">
-               A curated selection of commercial and narrative projects where lighting, composition, and emotion converge.
-             </p>
-          </div>
+        <div className="flex flex-col items-center justify-center text-center mb-20 border-b border-white/10 pb-8">
+             <h2 className="text-5xl md:text-7xl font-heading font-bold text-white tracking-tight">WORKS</h2>
         </div>
 
         {/* Featured Showreel - Direct Embed */}

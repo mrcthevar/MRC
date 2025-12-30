@@ -50,8 +50,10 @@ const ProjectCard: React.FC<{ project: Project; index: number; onClick: () => vo
   const currentY = useRef(0);
 
   // DYNAMIC THUMBNAIL LOGIC
-  const videoId = project.videoUrl.split('/').pop();
+  // Robustly extract ID even if URL has query params
+  const videoId = project.videoUrl.split('embed/')[1]?.split('?')[0] || project.videoUrl.split('/').pop()?.split('?')[0];
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  const fallbackUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
 
   useEffect(() => {
     let animationFrameId: number;
@@ -88,11 +90,10 @@ const ProjectCard: React.FC<{ project: Project; index: number; onClick: () => vo
           ref={imgRef}
           src={thumbnailUrl} 
           alt="Cinematic Work"
-          // Fallback mechanism: If maxresdefault is unavailable, fall back to hqdefault
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            if (target.src !== `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`) {
-                target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+            if (target.src !== fallbackUrl) {
+                target.src = fallbackUrl;
             }
           }}
           className="w-full h-full object-cover opacity-80 group-hover:opacity-100 will-change-transform grayscale group-hover:grayscale-0 transition-all duration-[800ms] ease-cinema"

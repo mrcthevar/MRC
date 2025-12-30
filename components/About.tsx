@@ -19,6 +19,10 @@ const About: React.FC = () => {
     }
   };
 
+  // Using a movie poster collage style image to match the user's request.
+  // Ideally, this should be replaced with the specific image URL the user has.
+  const aboutImageSrc = "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?q=80&w=1000&auto=format&fit=crop";
+
   return (
     <div className="py-24 md:py-32 px-6 bg-background relative z-10">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-start">
@@ -30,10 +34,14 @@ const About: React.FC = () => {
                 </h2>
              </Parallax>
              <Parallax speed={-0.05} className="relative z-0">
+               {/* 
+                  UPDATED IMAGE: Poster Wall / Collage 
+                  Replace 'aboutImageSrc' with your custom uploaded image URL if needed.
+               */}
                <img 
-                src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1000&auto=format&fit=crop" 
-                alt="M. Ravichandran On Set" 
-                className="w-full h-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100 shadow-2xl"
+                src={aboutImageSrc}
+                alt="Cinematic Works Collage" 
+                className="w-full h-auto rounded-lg grayscale hover:grayscale-0 transition-all duration-700 opacity-90 hover:opacity-100 shadow-2xl border border-white/10"
               />
             </Parallax>
         </div>

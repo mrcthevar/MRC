@@ -9,7 +9,7 @@ const stats: Stat[] = [
 
 const Counter: React.FC<{ end: number; duration?: number; suffix: string }> = ({ end, duration = 2000, suffix }) => {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -52,9 +52,15 @@ const Counter: React.FC<{ end: number; duration?: number; suffix: string }> = ({
   }, [isVisible, end, duration]);
 
   return (
-    <span ref={ref} className="font-heading font-bold text-6xl md:text-8xl text-white block mb-4 tracking-tighter">
-      {count}<span className="text-accent text-4xl md:text-6xl align-top ml-1">{suffix}</span>
-    </span>
+    <div ref={ref} className="flex items-start justify-center mb-4 leading-none">
+      <span className="font-heading font-bold text-6xl md:text-8xl text-white tracking-tighter leading-none">
+        {count}
+      </span>
+      {/* Suffix updated to match the number size exactly */}
+      <span className="font-heading font-bold text-accent text-6xl md:text-8xl tracking-tighter ml-1 leading-none">
+        {suffix}
+      </span>
+    </div>
   );
 };
 

@@ -67,11 +67,11 @@ const Contact: React.FC = () => {
 
         <div className="flex justify-center gap-6 md:gap-8 mb-20 flex-wrap">
           {[
-            { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { icon: XIcon, href: "https://x.com", label: "X (Twitter)" },
-            { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-            { icon: ImdbIcon, href: "https://imdb.com", label: "IMDB" }
+            { icon: Instagram, href: "https://www.instagram.com/mravichandran.t/", label: "Instagram" },
+            { icon: Linkedin, href: "https://in.linkedin.com/in/m-ravichandran-thevar-bb498214", label: "LinkedIn" },
+            { icon: XIcon, href: "https://x.com/mrcthevar?lang=en", label: "X (Twitter)" },
+            { icon: Facebook, href: "https://www.facebook.com/mravichandran.thevar", label: "Facebook" },
+            { icon: ImdbIcon, href: "https://www.imdb.com/name/nm4393993/?ref_=nv_sr_srsg_0_tt_0_nm_8_in_0_q_m%2520ravichandran%2520t", label: "IMDB" }
           ].map((social, i) => (
             <a 
               key={i} 

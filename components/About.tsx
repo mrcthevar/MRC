@@ -21,7 +21,7 @@ const About: React.FC = () => {
 
   // Using a movie poster collage style image to match the user's request.
   // Ideally, this should be replaced with the specific image URL the user has.
-  const aboutImageSrc = "https://images.unsplash.com/photo-1535016120720-40c6874c3b1c?q=80&w=1000&auto=format&fit=crop";
+  const aboutImageSrc = "/MRC1.jpeg";
 
   return (
     <div className="py-24 md:py-32 px-6 bg-background relative z-10">

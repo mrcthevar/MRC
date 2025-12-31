@@ -6,14 +6,12 @@ import About from './components/About';
 import Works from './components/Works';
 import Brands from './components/Brands';
 import Contact from './components/Contact';
-import CustomCursor from './components/ui/CustomCursor';
 import Noise from './components/ui/Noise';
 import SectionWrapper from './components/ui/SectionWrapper';
 
 const App: React.FC = () => {
   return (
     <div className="bg-background min-h-screen text-white selection:bg-accent selection:text-black overflow-x-hidden">
-      <CustomCursor />
       <Noise />
       <Navbar />
       <main>

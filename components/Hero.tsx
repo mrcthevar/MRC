@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
 
   // --- IMAGE CONFIGURATION ---
   // Updated to a dramatic, misty cinematic landscape suitable for the "DOP" aesthetic
-  const heroImageSrc = "https://images.unsplash.com/photo-1478720568477-152d9b164e63?q=80&w=2500&auto=format&fit=crop";
+  const heroImageSrc = "/HERO1.png";
 
   return (
     <div className="relative h-screen min-h-[700px] w-full overflow-hidden bg-background">

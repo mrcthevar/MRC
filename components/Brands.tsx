@@ -1,18 +1,18 @@
 import React from 'react';
 
 const brands = [
-  { name: 'Viacom18', src: 'https://placehold.co/300x150/050507/ffffff?text=VIACOM18' },
-  { name: 'Street Smart', src: 'https://placehold.co/300x150/050507/ffffff?text=STREET+SMART' },
-  { name: 'T-Series', src: 'https://placehold.co/300x150/050507/ffffff?text=T-SERIES' },
-  { name: 'Paytm', src: 'https://placehold.co/300x150/050507/ffffff?text=PAYTM' },
-  { name: 'TVF', src: 'https://placehold.co/300x150/050507/ffffff?text=TVF' },
-  { name: 'Shemaroo', src: 'https://placehold.co/300x150/050507/ffffff?text=SHEMAROO' },
-  { name: 'Polycab', src: 'https://placehold.co/300x150/050507/ffffff?text=POLYCAB' },
-  { name: 'Larsen & Toubro', src: 'https://placehold.co/300x150/050507/ffffff?text=L%26T' },
-  { name: 'Eros Now', src: 'https://placehold.co/300x150/050507/ffffff?text=EROS+NOW' },
-  { name: 'Edelweiss', src: 'https://placehold.co/300x150/050507/ffffff?text=EDELWEISS' },
-  { name: 'Zee Studios', src: 'https://placehold.co/300x150/050507/ffffff?text=ZEE+STUDIOS' },
-  { name: '3S', src: 'https://placehold.co/300x150/050507/ffffff?text=3S' },
+  { name: 'Viacom18', src: '/1.png' },
+  { name: 'Street Smart', src: '/2.png' },
+  { name: 'T-Series', src: '/3.png' },
+  { name: 'Paytm', src: '/4.png' },
+  { name: 'TVF', src: '/5.png' },
+  { name: 'Shemaroo', src: '/6.png' },
+  { name: 'Polycab', src: '/7.png' },
+  { name: 'Larsen & Toubro', src: '/8.png' },
+  { name: 'Eros Now', src: '/9.png' },
+  { name: 'Edelweiss', src: '/10.png' },
+  { name: 'Zee Studios', src: '/11.png' },
+  { name: '3S Movies', src: '/12.png' },
 ];
 
 const Brands: React.FC = () => {

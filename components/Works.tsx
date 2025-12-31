@@ -11,7 +11,7 @@ const projects: Project[] = [
   { videoUrl: 'https://www.youtube.com/embed/3hNFCTm0Q2g' },
   { videoUrl: 'https://www.youtube.com/embed/FsC9gGQ37-4' },
   { videoUrl: 'https://www.youtube.com/embed/1lZvUYygJK0' },
-  { videoUrl: 'https://youtube.com/embed/qo7cZzYMX2w?si=Bu6z1p9Z8lRQSifQ' },
+  { videoUrl: 'https://www.youtube.com/embed/qo7cZzYMX2w?si=Bu6z1p9Z8lRQSifQ' },
   { videoUrl: 'https://www.youtube.com/embed/tvHsiObv7Pg' },
   { videoUrl: 'https://www.youtube.com/embed/Jcchz8r3UHc' },
   { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },

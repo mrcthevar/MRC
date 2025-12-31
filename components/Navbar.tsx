@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Camera } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
 
 // COMPLETE NAV ITEMS DEFINITION
@@ -57,7 +57,6 @@ const Navbar: React.FC = () => {
           className="flex items-center gap-2 group cursor-pointer z-50 relative"
           onClick={(e) => handleNavClick(e, '#home')}
         >
-            <Camera className="w-6 h-6 text-accent group-hover:rotate-12 transition-transform duration-500" />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg tracking-widest text-white leading-none">M. RAVICHANDRAN</span>
               <span className="text-[0.6rem] tracking-[0.2em] text-secondary group-hover:text-accent transition-colors duration-300">DOP & FILMMAKER</span>

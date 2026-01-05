@@ -56,7 +56,7 @@ const About: React.FC = () => {
                 Over the last 12 years, I have honed my craft across feature films, commercials, and music videos. My approach is deeply collaborative; I believe in understanding the director's vision and elevating it through visual language.
               </p>
               <p>
-                Whether it's the high-octane energy of a trailer or the quiet intimacy of a short film, I strive to create visuals that are not just seen, but felt.
+                I strive to create visuals that are not just seen, but felt.
               </p>
             </div>
             <div className="mt-10">

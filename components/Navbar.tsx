@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
         >
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg tracking-widest text-white leading-none">M. RAVICHANDRAN</span>
-              <span className="text-[0.6rem] tracking-[0.2em] text-secondary group-hover:text-accent transition-colors duration-300">DOP & FILMMAKER</span>
+              <span className="text-[0.6rem] tracking-[0.2em] text-secondary group-hover:text-accent transition-colors duration-300">DOP</span>
             </div>
         </a>
 

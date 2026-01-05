@@ -53,7 +53,7 @@ const About: React.FC = () => {
                 I am a dedicated cinematographer based in Mumbai, with a passion that transcends the mere technicalities of the camera. For me, cinematography is about the emotional resonance of light, the deliberate composition of a frame, and the subtle dance of shadows that breathe life into a story.
               </p>
               <p>
-                Over the last 12 years, I have honed my craft across feature films, commercials, and music videos. My approach is deeply collaborative; I believe in understanding the director's vision and elevating it through visual language.
+                I have honed my craft across feature films, commercials, and music videos. My approach is deeply collaborative; I believe in understanding the director's vision and elevating it through visual language.
               </p>
               <p>
                 I strive to create visuals that are not just seen, but felt.

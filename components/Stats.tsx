@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Stat } from '../types';
 
 const stats: Stat[] = [
-  { id: 1, value: 12, suffix: '+', label: 'Years of Experience' },
   { id: 2, value: 200, suffix: 'M+', label: 'Video Views Count' },
   { id: 3, value: 50, suffix: '+', label: 'Feature Films & Ads' },
 ];
@@ -71,7 +70,7 @@ const Stats: React.FC = () => {
         {/* Cinematic horizontal divider */}
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent mb-12"></div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
           {stats.map((stat, index) => (
             <div key={stat.id} className={`flex flex-col items-center justify-center text-center group ${index !== stats.length - 1 ? 'md:border-r border-white/5' : ''}`}>
               <Counter end={stat.value} suffix={stat.suffix} />

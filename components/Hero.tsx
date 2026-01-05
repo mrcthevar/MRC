@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
            <div className={`flex flex-col items-end text-right gap-8 md:max-w-xl transition-all duration-1000 delay-500 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <p className="text-sm md:text-base font-sans font-medium tracking-wide leading-relaxed text-gray-200 uppercase drop-shadow-md">
                 Hello, I'm M. Ravichandran.<br />
-                Cinematographer & Filmmaker based<br />
+                Cinematographer based<br />
                 in Mumbai, a visual storyteller<br />
                 capturing the essence of each scene,<br />
                 frame by frame, to create lasting<br />

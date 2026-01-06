@@ -49,14 +49,21 @@ const About: React.FC = () => {
         <div className="w-full md:w-2/3 md:pt-20">
           <Parallax speed={0.02}>
             <div className="space-y-6 text-lg text-secondary leading-relaxed">
+              
               <p>
-                I am a dedicated cinematographer based in Mumbai, with a passion that transcends the mere technicalities of the camera. For me, cinematography is about the emotional resonance of light, the deliberate composition of a frame, and the subtle dance of shadows that breathe life into a story.
+                I am a Mumbai-based cinematographer with a foundation rooted in both technology and storytelling. My journey began in Computer Science and evolved into filmmaking during the early rise of digital cinema in India.
               </p>
+              
               <p>
-                I have honed my craft across feature films, commercials, and music videos. My approach is deeply collaborative; I believe in understanding the director's vision and elevating it through visual language.
+                I gained early exposure to cutting-edge digital workflows and went on to work on feature films during a transformative period for Indian cinema. I had the opportunity to work closely under the mentorship of Ram Gopal Varma, contributing across production and post-production pipelines—including his acclaimed film <span className="italic text-gray-300">The Attacks of 26/11</span>.
               </p>
+              
               <p>
-                I strive to create visuals that are not just seen, but felt.
+                My work spans 50+ feature films, commercials, and advertising projects, with cumulative viewership exceeding 200 million+ views.
+              </p>
+              
+              <p>
+                I believe cinematography is more than capturing images—it’s about crafting emotion through light, composition, and movement. I thrive in collaborative environments and focus on creating visuals that elevate the director’s vision and connect deeply with audiences.
               </p>
             </div>
             <div className="mt-10">

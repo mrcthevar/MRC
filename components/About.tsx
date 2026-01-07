@@ -51,11 +51,11 @@ const About: React.FC = () => {
             <div className="space-y-6 text-lg text-secondary leading-relaxed">
               
               <p>
-                I am a Mumbai-based cinematographer with a foundation rooted in both technology and storytelling. My journey began in Computer Science and evolved into filmmaking during the early rise of digital cinema in India.
+                I am a Mumbai-based cinematographer with a foundation rooted in both technology and storytelling. My journey began in Computer Science and evolved into filmmaking during the early rise of digital cameras in India.
               </p>
               
               <p>
-                I gained early exposure to cutting-edge digital workflows and went on to work on feature films during a transformative period for Indian cinema. I had the opportunity to work closely under the mentorship of Ram Gopal Varma, contributing across production and post-production pipelines—including his acclaimed film <span className="italic text-gray-300">The Attacks of 26/11</span>.
+                “I gained early exposure to cutting-edge digital workflows and went on to work on feature films during a transformative period in Indian cinema, as digital cameras reshaped the filmmaking landscape. I had the opportunity to work closely under the mentorship of Ram Gopal Varma, as a cinematographer —including his acclaimed film <span className="italic text-gray-300">The Attacks of 26/11</span>.
               </p>
               
               <p>

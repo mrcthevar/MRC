@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Facebook, Linkedin, Mail } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, Mail, Phone } from 'lucide-react';
 
 // Custom X (Twitter) Icon
 const XIcon = ({ size = 24, className = "" }: { size?: number, className?: string }) => (
@@ -57,13 +57,23 @@ const Contact: React.FC = () => {
           Drop me a line and let's create something cinematic together.
         </p>
 
-        <a 
-          href="mailto:mravichandran.thevar@gmail.com" 
-          className="inline-flex items-center gap-3 text-xl md:text-3xl text-white hover:text-accent transition-all duration-300 border-b border-white/20 hover:border-accent pb-2 mb-16"
-        >
-          <Mail className="w-6 h-6 md:w-8 md:h-8" />
-          mravichandran.thevar@gmail.com
-        </a>
+        <div className="flex flex-col items-center gap-6 mb-16">
+          <a 
+            href="mailto:mravichandran.thevar@gmail.com" 
+            className="inline-flex items-center gap-3 text-xl md:text-3xl text-white hover:text-accent transition-all duration-300 border-b border-white/20 hover:border-accent pb-2"
+          >
+            <Mail className="w-6 h-6 md:w-8 md:h-8" />
+            mravichandran.thevar@gmail.com
+          </a>
+
+          <a 
+            href="tel:+917506017666" 
+            className="inline-flex items-center gap-3 text-xl md:text-3xl text-white hover:text-accent transition-all duration-300 border-b border-white/20 hover:border-accent pb-2"
+          >
+            <Phone className="w-6 h-6 md:w-8 md:h-8" />
+            +91 75060 17666
+          </a>
+        </div>
 
         <div className="flex justify-center gap-6 md:gap-8 mb-20 flex-wrap">
           {[

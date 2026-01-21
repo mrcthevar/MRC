@@ -30,7 +30,7 @@ const Brands: React.FC = () => {
           {brands.map((brand, i) => (
             <div 
               key={i} 
-              className="w-full flex items-center justify-center group opacity-100 transition-opacity duration-500"
+              className="w-full flex items-center justify-center group opacity-40 hover:opacity-100 transition-opacity duration-500"
             >
               <img 
                 src={brand.src} 

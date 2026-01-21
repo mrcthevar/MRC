@@ -7,14 +7,13 @@ import { Plus } from 'lucide-react';
 // Minimal structure: Only videoUrl.
 const projects: Project[] = [
   { videoUrl: 'https://www.youtube.com/embed/sNMkamS_dHE' },
-  { videoUrl: 'https://www.youtube.com/embed/GWS6QDE7nZ8?si=3bvq0vzkiVxH66U2'}, 
-  { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
+  { videoUrl: 'https://www.youtube.com/embed/FgSee2uS2gs' },
   { videoUrl: 'https://www.youtube.com/embed/3hNFCTm0Q2g' },
   { videoUrl: 'https://www.youtube.com/embed/FsC9gGQ37-4' },
   { videoUrl: 'https://www.youtube.com/embed/1lZvUYygJK0' },
   { videoUrl: 'https://www.youtube.com/embed/tvHsiObv7Pg' },
   { videoUrl: 'https://www.youtube.com/embed/Jcchz8r3UHc' },
-  { videoUrl: 'https://www.youtube.com/embed/FgSee2uS2gs' },
+  { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
   { videoUrl: 'https://www.youtube.com/embed/0cQ7IyXjM_o' },
   { videoUrl: 'https://www.youtube.com/embed/SDLtS1-eXF0' },
   { videoUrl: 'https://www.youtube.com/embed/aZGTqkAzBOI' },
@@ -49,16 +48,18 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   };
 
   return (
-    <div className="w-full relative overflow-hidden rounded-sm border border-white/10 shadow-2xl bg-surface">
+    <div className="group w-full relative overflow-hidden rounded-sm border border-white/10 bg-surface transition-all duration-500 ease-cinema hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.1)] hover:border-accent/40">
       <div className="aspect-video w-full relative">
         <iframe 
           src={getEmbedUrl(project.videoUrl)}
           title="Cinematic Work"
-          className="w-full h-full absolute inset-0"
+          className="w-full h-full absolute inset-0 transition-opacity duration-500 opacity-90 group-hover:opacity-100"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           loading="lazy"
         />
+        {/* Shine effect overlay */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
       </div>
     </div>
   );
@@ -83,7 +84,7 @@ const Works: React.FC = () => {
 
         {/* Featured Showreel - Direct Embed */}
         <SectionWrapper delay={100} className="mb-24">
-            <div className="w-full relative overflow-hidden rounded-sm border border-white/10 shadow-2xl">
+            <div className="group w-full relative overflow-hidden rounded-sm border border-white/10 shadow-2xl transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
               <div className="aspect-video w-full bg-surface relative">
                   <iframe 
                       src="https://www.youtube.com/embed/0mPhg9Nzr74?rel=0&modestbranding=1&showinfo=0" 
@@ -110,7 +111,7 @@ const Works: React.FC = () => {
           <div className="mt-24 text-center">
               <button 
                 onClick={handleLoadMore}
-                className="group inline-flex items-center gap-3 text-sm text-white border border-white/20 px-10 py-5 hover:bg-white hover:text-black transition-all duration-500 ease-cinema uppercase tracking-[0.2em] rounded-sm cursor-pointer"
+                className="group inline-flex items-center gap-3 text-sm text-white border border-white/20 px-10 py-5 hover:bg-white hover:text-black transition-all duration-500 ease-cinema uppercase tracking-[0.2em] rounded-sm cursor-pointer hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
               >
                   <span>Load More Projects</span>
                   <Plus className="w-4 h-4 group-hover:rotate-90 transition-transform duration-500" />

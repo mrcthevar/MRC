@@ -13,10 +13,18 @@ const navItems: NavItem[] = [
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 50);
+
+      // Calculate scroll progress percentage
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+      setScrollProgress(Number(scroll));
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -50,16 +58,16 @@ const Navbar: React.FC = () => {
         scrolled ? 'bg-background/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-20">
         {/* LOGO LINK */}
         <a 
           href="#home" 
-          className="flex items-center gap-2 group cursor-pointer z-50 relative"
+          className="flex items-center gap-2 group cursor-pointer"
           onClick={(e) => handleNavClick(e, '#home')}
         >
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg tracking-widest text-white leading-none">M. RAVICHANDRAN</span>
-              <span className="text-[0.6rem] tracking-[0.2em] text-secondary group-hover:text-accent transition-colors duration-300">DOP</span>
+              <span className="text-[0.6rem] tracking-[0.2em] text-secondary group-hover:text-accent transition-colors duration-300">DOP & FILMMAKER</span>
             </div>
         </a>
 
@@ -70,21 +78,25 @@ const Navbar: React.FC = () => {
               key={item.label}
               href={item.href}
               onClick={(e) => handleNavClick(e, item.href)}
-              className="text-sm uppercase tracking-widest text-gray-300 hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all after:duration-300 hover:after:w-full cursor-pointer"
+              className="text-sm uppercase tracking-widest text-gray-300 hover:text-white transition-all duration-300 relative group cursor-pointer"
             >
-              {item.label}
+              <span className="relative z-10">{item.label}</span>
+              <span className="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-accent transition-all duration-300 ease-out group-hover:w-full group-hover:left-0"></span>
             </a>
           ))}
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white hover:text-accent transition-colors cursor-pointer relative z-50"
+          className="md:hidden text-white hover:text-accent transition-colors cursor-pointer"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
+
+      {/* Scroll Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-accent to-[#9a8b2a] z-50 transition-all duration-100 ease-linear" style={{ width: `${scrollProgress * 100}%` }}></div>
 
       {/* Mobile Menu Overlay */}
       <div

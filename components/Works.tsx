@@ -7,7 +7,7 @@ import { Plus } from 'lucide-react';
 // Minimal structure: Only videoUrl.
 const projects: Project[] = [
   { videoUrl: 'https://www.youtube.com/embed/sNMkamS_dHE' },
-  { videoUrl: '"https://www.youtube.com/embed/GWS6QDE7nZ8?si=3bvq0vzkiVxH66U2'}, 
+  { videoUrl: 'https://www.youtube.com/embed/GWS6QDE7nZ8?si=3bvq0vzkiVxH66U2'}, 
   { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
   { videoUrl: 'https://www.youtube.com/embed/3hNFCTm0Q2g' },
   { videoUrl: 'https://www.youtube.com/embed/FsC9gGQ37-4' },

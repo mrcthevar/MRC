@@ -4,9 +4,9 @@ import { Project } from '../types';
 import { Plus } from 'lucide-react';
 
 // --- PROJECTS DATA ---
-// Minimal structure: Only videoUrl. https://youtu.be/GWS6QDE7nZ8?si=O0Kin38MAI_TJflM
+// Minimal structure: Only videoUrl. h
 const projects: Project[] = [
-  { videoUrl: 'https://youtu.be/GWS6QDE7nZ8?si=O0Kin38MAI_TJflM' },
+  { videoUrl: 'https://www.youtube.com/embed/GWS6QDE7nZ8' },
   { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
   { videoUrl: 'https://www.youtube.com/embed/sNMkamS_dHE' },
   { videoUrl: 'https://www.youtube.com/embed/FgSee2uS2gs' },

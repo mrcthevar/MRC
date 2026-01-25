@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
 
-// COMPLETE NAV ITEMS DEFINITION
 const navItems: NavItem[] = [
   { label: 'HOME', href: '#home' },
   { label: 'ABOUT', href: '#about' },
@@ -11,24 +10,43 @@ const navItems: NavItem[] = [
 ];
 
 const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrolled(currentScrollY > 50);
+    let rafId: number;
+    let lastScrolledState = false;
 
-      // Calculate scroll progress percentage
+    const animate = () => {
+      const currentScrollY = window.scrollY;
       const totalScroll = document.documentElement.scrollTop;
       const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scroll = `${totalScroll / windowHeight}`;
-      setScrollProgress(Number(scroll));
+      const progress = totalScroll / windowHeight;
+
+      // Direct DOM update for progress bar (High Perf)
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = `${progress * 100}%`;
+      }
+
+      // Efficient class toggling
+      const isScrolled = currentScrollY > 50;
+      if (isScrolled !== lastScrolledState && navRef.current) {
+        lastScrolledState = isScrolled;
+        if (isScrolled) {
+            navRef.current.classList.add('bg-background/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+            navRef.current.classList.remove('bg-transparent', 'py-6');
+        } else {
+            navRef.current.classList.remove('bg-background/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+            navRef.current.classList.add('bg-transparent', 'py-6');
+        }
+      }
+
+      rafId = requestAnimationFrame(animate);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -39,7 +57,7 @@ const Navbar: React.FC = () => {
     const element = document.getElementById(targetId);
     
     if (element) {
-      const offset = 100; // Height of navbar + extra padding
+      const offset = 100;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -54,12 +72,10 @@ const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6'
-      }`}
+      ref={navRef}
+      className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent py-6"
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-20">
-        {/* LOGO LINK */}
         <a 
           href="#home" 
           className="flex items-center gap-2 group cursor-pointer"
@@ -71,7 +87,6 @@ const Navbar: React.FC = () => {
             </div>
         </a>
 
-        {/* Desktop Nav - PLAIN ANCHOR TAGS */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a
@@ -86,7 +101,6 @@ const Navbar: React.FC = () => {
           ))}
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className="md:hidden text-white hover:text-accent transition-colors cursor-pointer"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -95,10 +109,8 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Scroll Progress Bar */}
-      <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-accent to-[#9a8b2a] z-50 transition-all duration-100 ease-linear" style={{ width: `${scrollProgress * 100}%` }}></div>
+      <div ref={progressBarRef} className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-accent to-[#9a8b2a] z-50 transition-none ease-linear" style={{ width: '0%' }}></div>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 md:hidden ${
           mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'

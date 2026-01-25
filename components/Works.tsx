@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import SectionWrapper from './ui/SectionWrapper';
 import { Project } from '../types';
-import { Plus } from 'lucide-react';
+import { Plus, Play } from 'lucide-react';
 
 // --- PROJECTS DATA ---
-// Minimal structure: Only videoUrl. h
 const projects: Project[] = [
   { videoUrl: 'https://www.youtube.com/embed/GWS6QDE7nZ8' },
   { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
@@ -41,26 +40,60 @@ const projects: Project[] = [
 
 const ITEMS_PER_PAGE = 6;
 
+// Helper to extract video ID from various YouTube URL formats
+const getYouTubeId = (url: string) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
-  // Helper to ensure clean YouTube embed params
-  const getEmbedUrl = (url: string) => {
-    const separator = url.includes('?') ? '&' : '?';
-    return `${url}${separator}rel=0&modestbranding=1&showinfo=0`;
-  };
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoId = getYouTubeId(project.videoUrl);
+  
+  // High quality thumbnail
+  const thumbnail = videoId 
+    ? `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg` 
+    : '';
+
+  // Construct autoplay URL
+  const embedUrl = `${project.videoUrl}${project.videoUrl.includes('?') ? '&' : '?'}autoplay=1&rel=0&modestbranding=1&showinfo=0`;
 
   return (
-    <div className="group w-full relative overflow-hidden rounded-sm border border-white/10 bg-surface transition-all duration-500 ease-cinema hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.1)] hover:border-accent/40">
-      <div className="aspect-video w-full relative">
-        <iframe 
-          src={getEmbedUrl(project.videoUrl)}
-          title="Cinematic Work"
-          className="w-full h-full absolute inset-0 transition-opacity duration-500 opacity-90 group-hover:opacity-100"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-        />
-        {/* Shine effect overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+    <div 
+      className="group w-full relative overflow-hidden rounded-sm border border-white/10 bg-surface transition-all duration-500 ease-cinema hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,175,55,0.1)] hover:border-accent/40 cursor-pointer"
+      onClick={() => setIsPlaying(true)}
+    >
+      <div className="aspect-video w-full relative bg-black">
+        {!isPlaying ? (
+          <>
+            {/* Thumbnail */}
+            <img 
+              src={thumbnail} 
+              alt="Project Thumbnail" 
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+              loading="lazy"
+            />
+            
+            {/* Play Button Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300 transform group-hover:scale-110">
+                <Play className="w-6 h-6 text-white group-hover:text-black fill-current ml-1" />
+              </div>
+            </div>
+
+            {/* Shine effect overlay */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+          </>
+        ) : (
+          <iframe 
+            src={embedUrl}
+            title="Cinematic Work"
+            className="w-full h-full absolute inset-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )}
       </div>
     </div>
   );
@@ -83,18 +116,18 @@ const Works: React.FC = () => {
              <h2 className="text-5xl md:text-7xl font-heading font-bold text-white tracking-tight">WORKS</h2>
         </div>
 
-        {/* Featured Showreel - Direct Embed */}
+        {/* Featured Showreel - Optimized Facade */}
         <SectionWrapper delay={100} className="mb-24">
-            <div className="group w-full relative overflow-hidden rounded-sm border border-white/10 shadow-2xl transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-              <div className="aspect-video w-full bg-surface relative">
-                  <iframe 
+             {/* We inline the logic here for the main showreel for simplicity or create a specialized card */}
+            <div className="group w-full relative overflow-hidden rounded-sm border border-white/10 shadow-2xl transition-all duration-500 hover:border-accent/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] aspect-video bg-surface">
+                 <iframe 
                       src="https://www.youtube.com/embed/0mPhg9Nzr74?rel=0&modestbranding=1&showinfo=0" 
                       title="Main Showreel"
                       className="w-full h-full absolute inset-0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                   />
-              </div>
             </div>
         </SectionWrapper>
 

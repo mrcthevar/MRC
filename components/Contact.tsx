@@ -67,11 +67,11 @@ const Contact: React.FC = () => {
           </a>
 
           <a 
-            href="tel:+917506017666" 
+            href="tel:+919987540603" 
             className="inline-flex items-center gap-3 text-xl md:text-3xl text-white hover:text-accent transition-all duration-300 border-b border-white/20 hover:border-accent pb-2"
           >
             <Phone className="w-6 h-6 md:w-8 md:h-8" />
-            +91 75060 17666
+            +91 9987 540603
           </a>
         </div>
 

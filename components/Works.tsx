@@ -5,15 +5,15 @@ import { Plus, Play } from 'lucide-react';
 
 // --- PROJECTS DATA ---
 const projects: Project[] = [
-  { videoUrl: 'https://www.youtube.com/embed/GWS6QDE7nZ8' },
-  { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
   { videoUrl: 'https://www.youtube.com/embed/sNMkamS_dHE' },
+  { videoUrl: 'https://youtube/GWS6QDE7nZ8?si=O0Kin38MAI_TJflM' },
   { videoUrl: 'https://www.youtube.com/embed/FgSee2uS2gs' },
   { videoUrl: 'https://www.youtube.com/embed/3hNFCTm0Q2g' },
   { videoUrl: 'https://www.youtube.com/embed/FsC9gGQ37-4' },
   { videoUrl: 'https://www.youtube.com/embed/1lZvUYygJK0' },
   { videoUrl: 'https://www.youtube.com/embed/tvHsiObv7Pg' },
   { videoUrl: 'https://www.youtube.com/embed/Jcchz8r3UHc' },
+  { videoUrl: 'https://www.youtube.com/embed/EJfKYf4mbbM' },
   { videoUrl: 'https://www.youtube.com/embed/0cQ7IyXjM_o' },
   { videoUrl: 'https://www.youtube.com/embed/SDLtS1-eXF0' },
   { videoUrl: 'https://www.youtube.com/embed/aZGTqkAzBOI' },

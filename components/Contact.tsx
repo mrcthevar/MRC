@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
             className="inline-flex items-center gap-3 text-xl md:text-3xl text-white hover:text-accent transition-all duration-300 border-b border-white/20 hover:border-accent pb-2"
           >
             <Mail className="w-6 h-6 md:w-8 md:h-8" />
-            mravichandran.thevar@gmail.com
+            mravichandrant@gmail.com
           </a>
 
           <a 
